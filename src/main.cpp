@@ -1,9 +1,39 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Kairos' Window");
 
+    // --- Load texture ---
+    sf::Texture texture;
+    if (!texture.loadFromFile("res/image.png", sf::IntRect(10, 10, 32, 32)))
+    {
+        std::cout << "No image for texture\n";
+    }
+
+    // --- Render to texture ---
+    sf::RenderTexture renderTexture;
+    renderTexture.create(800, 600);
+
+    sf::Sprite sprite(texture);
+
+    renderTexture.clear(sf::Color::Transparent);
+    renderTexture.draw(sprite);
+    renderTexture.display();
+
+    sf::Sprite finalSprite(renderTexture.getTexture());
+
+    // --- Load font and prepare text ---
+    sf::Font font;
+    if (!font.loadFromFile("res/font.ttf"))
+        std::cout << "Could not load font\n";
+
+    sf::Text text("Hello world", font, 24);
+    text.setFillColor(sf::Color::Red);
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
+    // --- Main loop ---
     while (window.isOpen())
     {
         sf::Event event;
@@ -14,43 +44,10 @@ int main()
         }
 
         window.clear(sf::Color::Black);
+
+        window.draw(finalSprite);
+        window.draw(text);
+
         window.display();
     }
-
-    sf::Texture texture;
-    if (!texture.loadFromFile("res/image.png", false, sf::IntRect({10, 10}, {32, 32})))
-    {
-        std::cout << "No image for texture";
-    }
-
-    // create a 500x500 render-texture
-    sf::RenderTexture renderTexture({500, 500});
-
-    // drawing uses the same functions
-    texture.clear();
-    texture.draw(sprite); // or any other drawable
-    texture.display();
-
-    // draw it to the window
-    sf::Sprite sprite(texture);
-    window.draw(sprite);
-
-    sf::Text text(font); // a font is required to make a text object
-
-    // set the string to display
-    text.setString("Hello world");
-
-    // set the character size
-    text.setCharacterSize(24); // in pixels, not points!
-
-    // set the color
-    text.setFillColor(sf::Color::Red);
-
-    // set the text style
-    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
-
-    ...
-
-    // inside the main loop, between window.clear() and window.display()
-    window.draw(text);
 }
