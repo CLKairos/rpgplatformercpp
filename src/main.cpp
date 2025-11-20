@@ -1,22 +1,55 @@
+#include <SFML/Graphics.hpp>
 #include <iostream>
-#include "window.h"
 
-int main() {
-    Window* pwindow = new Window();
+int main()
+{
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Kairos' Window");
 
-    std::cout << "Creating Window" << std::endl;
-
-    bool running = true;
-    while (running) {
-        if (pwindow->processMessages() == false) {
-            std::cout << "Closing Window" << std::endl;
-            running = false;
-        }
-
-        Sleep(10);
+    // --- Load texture ---
+    sf::Texture texture;
+    if (!texture.loadFromFile("res/image.png", sf::IntRect(10, 10, 32, 32)))
+    {
+        std::cout << "No image for texture\n";
     }
 
-    delete pwindow;
+    // --- Render to texture ---
+    sf::RenderTexture renderTexture;
+    renderTexture.create(100, 100);
 
-    return 0;
+    sf::Sprite sprite(texture);
+
+    sprite.setPosition(40.f, 20.f)
+
+    renderTexture.clear(sf::Color::Transparent);
+    renderTexture.draw(sprite);
+    renderTexture.display();
+
+    sf::Sprite finalSprite(renderTexture.getTexture());
+
+    // --- Load font and prepare text ---
+    sf::Font font;
+    if (!font.loadFromFile("res/font.ttf"))
+        std::cout << "Could not load font\n";
+
+    sf::Text text("Hello world", font, 24);
+    text.setFillColor(sf::Color::Red);
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
+    // --- Main loop ---
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear(sf::Color::Black);
+
+        window.draw(finalSprite);
+        window.draw(text);
+
+        window.display();
+    }
 }
