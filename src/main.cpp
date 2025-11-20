@@ -14,9 +14,11 @@ int main()
 
     // --- Render to texture ---
     sf::RenderTexture renderTexture;
-    renderTexture.create(800, 600);
+    renderTexture.create(100, 100);
 
     sf::Sprite sprite(texture);
+
+    sprite.setPosition(40.f, 20.f)
 
     renderTexture.clear(sf::Color::Transparent);
     renderTexture.draw(sprite);
