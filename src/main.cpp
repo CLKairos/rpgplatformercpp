@@ -1,22 +1,19 @@
-#include <iostream>
-#include "window.h"
+#include <SFML/Graphics.hpp>
 
-int main() {
-    Window* pwindow = new Window();
+int main()
+{
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Kairos' Window");
 
-    std::cout << "Creating Window" << std::endl;
-
-    bool running = true;
-    while (running) {
-        if (pwindow->processMessages() == false) {
-            std::cout << "Closing Window" << std::endl;
-            running = false;
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
         }
 
-        Sleep(10);
+        window.clear(sf::Color::Black);
+        window.display();
     }
-
-    delete pwindow;
-
-    return 0;
 }
