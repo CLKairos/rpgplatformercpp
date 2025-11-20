@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/Users/Kairos/Documents/rpgplatformercpp/build",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.4\\bin\\mingw\\bin\\G__~1.EXE  @CMakeFiles/rpgplatformercpp.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\rpgplatformercpp.dir\\src\\main.cpp.obj -c C:\\Users\\Kairos\\Documents\\rpgplatformercpp\\src\\main.cpp",
+  "file": "C:/Users/Kairos/Documents/rpgplatformercpp/src/main.cpp",
+  "output": "CMakeFiles/rpgplatformercpp.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Kairos/Documents/rpgplatformercpp/build",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.4\\bin\\mingw\\bin\\G__~1.EXE  @CMakeFiles/rpgplatformercpp.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\rpgplatformercpp.dir\\src\\window.cpp.obj -c C:\\Users\\Kairos\\Documents\\rpgplatformercpp\\src\\window.cpp",
+  "file": "C:/Users/Kairos/Documents/rpgplatformercpp/src/window.cpp",
+  "output": "CMakeFiles/rpgplatformercpp.dir/src/window.cpp.obj"
+}
+]

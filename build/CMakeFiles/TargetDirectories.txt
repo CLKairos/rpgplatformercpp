@@ -1,0 +1,3 @@
+C:/Users/Kairos/Documents/rpgplatformercpp/build/CMakeFiles/rpgplatformercpp.dir
+C:/Users/Kairos/Documents/rpgplatformercpp/build/CMakeFiles/edit_cache.dir
+C:/Users/Kairos/Documents/rpgplatformercpp/build/CMakeFiles/rebuild_cache.dir

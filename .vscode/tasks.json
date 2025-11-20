@@ -1,0 +1,22 @@
+    {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "build",
+                "type": "shell",
+                "command": "g++",
+                "args": [
+                    "main.cpp",
+                    "-o",
+                    "mywindow.exe",
+                    "-luser32", // Link with user32.lib for Win32 API functions
+                    "-lgdi32"   // Link with gdi32.lib for GDI functions (if needed)
+                ],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "problemMatcher": "$gcc"
+            }
+        ]
+    }

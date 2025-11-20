@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\rpgplatformercpp.dir/objects.a
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ar.exe qc CMakeFiles\rpgplatformercpp.dir/objects.a @CMakeFiles\rpgplatformercpp.dir\objects1.rsp
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\rpgplatformercpp.dir/objects.a -Wl,--no-whole-archive -o rpgplatformercpp.exe -Wl,--out-implib,librpgplatformercpp.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\rpgplatformercpp.dir\linkLibs.rsp
